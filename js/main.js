@@ -88,13 +88,13 @@
 })();
 
 // V14 — formulário: abre WhatsApp sem enviar dados a servidor
-(function(){const form=document.querySelector('#orcamento-form');if(!form)return;form.addEventListener('submit',function(e){e.preventDefault();if(!form.reportValidity())return;const d=new FormData(form);const v=k=>String(d.get(k)||'').trim();const data=v('data');let fmt='A definir';if(data){const parts=data.split('-');if(parts.length===3)fmt=parts[2]+'/'+parts[1]+'/'+parts[0]}const msg=['Olá, Vitor! Gostaria de solicitar um orçamento para um ensaio fotográfico.','','Nome: '+v('nome'),'Tipo de ensaio: '+v('tipo'),'Data desejada: '+fmt,'Local do ensaio: '+v('local')];if(v('mensagem'))msg.push('Informações adicionais: '+v('mensagem'));window.open('https://wa.me/5554993389869?text='+encodeURIComponent(msg.join('\n')),'_blank','noopener,noreferrer')})})();
+(function(){const form=document.querySelector('#orcamento-form');if(!form)return;form.addEventListener('submit',function(e){e.preventDefault();if(!form.reportValidity())return;const d=new FormData(form);const v=k=>String(d.get(k)||'').trim();const data=v('data');let fmt='A definir';if(data){const parts=data.split('-');if(parts.length===3)fmt=parts[2]+'/'+parts[1]+'/'+parts[0]}const msg=['Olá, Vitor! Gostaria de solicitar um orçamento para fotografia ou vídeo.','','Nome: '+v('nome'),'Tipo de serviço: '+v('tipo'),'Data desejada: '+fmt,'Local do serviço: '+v('local')];if(v('mensagem'))msg.push('Informações adicionais: '+v('mensagem'));window.open('https://wa.me/5554993389869?text='+encodeURIComponent(msg.join('\n')),'_blank','noopener,noreferrer')})})();
 
 // V18 — animações de entrada quando os elementos aparecem na tela
 (function () {
   'use strict';
   const items = Array.from(document.querySelectorAll(
-    '.trabalhos-intro, .trabalhos .card, .camera-heading, .camera-body, .camera-controls, .camera-disclaimer, .orcamento-copy, .orcamento-form, .rodape-in > section, .footer-bottom'
+    '.trabalhos-intro, .trabalhos .card, .coberturas-intro, .cobertura-card, .coberturas-footnote, .orcamento-copy, .orcamento-form, .rodape-in > section, .footer-bottom'
   ));
   if (!items.length || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const observer = new IntersectionObserver((entries) => {
